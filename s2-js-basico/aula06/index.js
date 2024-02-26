@@ -15,3 +15,6 @@ let nome3;
 
 console.log(nome, "nasceu em 1999");
 console.log(nome2, "Teve um filho!")
+
+//console.log(15+5+1+1+12+22+22+18+1+16+1+6+17+32+26+9+9+28+25+25+16+25+28+1+25+20+19+36)
+//console.log(461/60)
