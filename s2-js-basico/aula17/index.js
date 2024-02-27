@@ -20,3 +20,4 @@ console.log(raiz(25));
 //Arrow function
 const raiz = n => n ** 0.5 
 //         param, corpo da funcao, não precisa da palavra return
+
