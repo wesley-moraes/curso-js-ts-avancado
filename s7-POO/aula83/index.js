@@ -43,3 +43,4 @@ class Smartphone extends DispositivoEletronico{ //Aqui eu já tenho tudo o que t
 
 const s1 = new Smartphone('Samsung', 'Preto', 'Galaxy S10');
 console.log(s1);
+
