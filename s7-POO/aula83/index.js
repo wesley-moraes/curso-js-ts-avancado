@@ -2,6 +2,7 @@ class DispositivoEletronico {
     constructor(nome) {
         this.nome = nome;
         this.ligado = false;
+        this.teclaUm = false;
     }
 
     ligar() {
@@ -23,6 +24,13 @@ class DispositivoEletronico {
         }
 
     }
+
+    teclaUm(){
+        this.teclaUm = true;
+        console.log("teclou a tecla 1!");
+        return;
+
+    }
 }
 
 const d1 = new DispositivoEletronico('Smartphone');
@@ -30,6 +38,8 @@ d1.ligar();
 d1.desligar();
 //d1.desligar();
 console.log(d1);
+d1.teclaUm();
+
 
 class Smartphone extends DispositivoEletronico{ //Aqui eu já tenho tudo o que tem na classe superior
     constructor(nome, cor, modelo){
