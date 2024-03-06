@@ -25,10 +25,15 @@ class DispositivoEletronico {
 
     }
 
-    teclaUm(){
+    teclarUm(){
         this.teclaUm = true;
-        console.log("teclou a tecla 1!");
-        return;
+        
+
+        if(this.teclaUm){
+            console.log("teclou a tecla 1!");
+            return;
+        }
+        
 
     }
 }
@@ -38,7 +43,7 @@ d1.ligar();
 d1.desligar();
 //d1.desligar();
 console.log(d1);
-d1.teclaUm();
+d1.teclarUm();
 
 
 class Smartphone extends DispositivoEletronico{ //Aqui eu já tenho tudo o que tem na classe superior

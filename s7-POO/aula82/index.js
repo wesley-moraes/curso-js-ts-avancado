@@ -59,8 +59,14 @@ class Pessoa{
         this.nome = valor.shift();
         this.sobrenome = valor.join(' ');
     }
+
+    set exibirInfo(argue){
+        console.log("recursivo", argue);
+
+    }
 }
 
 const p1 = new Pessoa('Wesley', 'Moraes');
 p1.nomeCompleto = "Wesley Santos Moraes"; //O sinal de igual ativa o set! 
 console.log(p1.nomeCompleto);
+p1.exibirInfo("call");
