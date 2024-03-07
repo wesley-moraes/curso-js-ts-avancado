@@ -60,14 +60,6 @@ class Pessoa{
         this.sobrenome = valor.join(' ');
     }
 
-    get exibirInfo(){
-        return this.nome;
-    }
-
-    set exibirInfo(argue){
-        console.log("recursivo", argue);
-
-    }
 }
 
 const p1 = new Pessoa('Wesley', 'Moraes');
