@@ -18,7 +18,7 @@ function esperaAi(msg, tempo){
     return new Promise((resolve, reject) => {
         if(typeof msg !== 'string') reject('Bad Value');
         setTimeout(()=>{
-            resolve(msg);
+            resolve(msg); //A promessa fica pendente, até chegar no resolve! E aí o resolve cai nos thens da vida
         }, tempo);
     });   
 }
