@@ -23,3 +23,5 @@ console.log(path.resolve(__dirname, '..', '..')); //ele vai excluir/voltar duas 
 //console.log(path.resolve(__dirname, '..', '..', 'arquivos', 'imagens')); //Apenas um exemplo que ele pode navegar pra onde vc deseja
 
 //Vc pode adicionar a extensão do seu módulo, que no caso é um .js, mas não é necessário
+
+
