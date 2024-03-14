@@ -15,3 +15,5 @@
 
 //npm uninstall express
 
+//Verificar os meus pacotes estão desatualiados
+//npm outdated
