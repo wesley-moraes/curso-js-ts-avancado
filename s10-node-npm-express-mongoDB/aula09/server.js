@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const routes = require('./routes')
 
 //http://facebook.com/profiles/
 //URL Params!
@@ -20,16 +21,21 @@ app.use(
         }
     )
 )
+app.use(routes); //Aqui é para usar as rotas! Deixar visível para ser usado
 
+/*
 app.get('/', (req, res) => {
     res.send(`
         <form action="/" method="POST">
-            Nome: <input type="text" name="nome">
+            Nome do Cliente: <input type="text" name="nome"> <br>
+            Outro Campo: <input type="text" name="outroCampo" /> <br>
             <button>Enviar Form</button>
         </form>
     `);
 });
+*/
 
+/*
 app.get('/testes/:idUsuarios?/:parametro?', (req, res)=>{
     console.log(req.params);
     console.log(req.query);
@@ -40,6 +46,7 @@ app.post('/', (req, res) =>{
     console.log(req.body)
     res.send(`O que você me enviou foi: ${req.body.nome}`);
 })
+*/
 
 app.listen(3000);
 
