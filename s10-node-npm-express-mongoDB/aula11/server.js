@@ -23,6 +23,11 @@ app.use(
     )
 )
 
+//Uso estático -> São os arquivos finais! Eles ficam dentro da pasta public!
+//app.use(express.static('./public'));
+app.use(express.static(path.resolve(__dirname, 'public')));
+
+//Views
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
