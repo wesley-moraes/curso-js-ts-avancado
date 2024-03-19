@@ -16,5 +16,6 @@ exports.paginaInicial = (req, res) => {
 }
 //exports.trataPost = (req, res, next) =>{
 exports.trataPost = (req, res) =>{
-    res.send('Nova Rota de Post');
+    //res.send('Nova Rota de Post');
+    res.send(req.body);
 }

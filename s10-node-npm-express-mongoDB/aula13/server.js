@@ -26,12 +26,14 @@ app.use(
 
 //Uso estático -> São os arquivos finais! Eles ficam dentro da pasta public!
 //app.use(express.static('./public'));
+//Isso aqui é um middleware
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 //Views
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 
+//Próprios Middleware
 app.use(meuMiddleware);
 app.use(routes); //Aqui é para usar as rotas! Deixar visível para ser usado
 
