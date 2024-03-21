@@ -2,21 +2,7 @@
 
   <section class="container">
     <h1>  
-      <%# conteudo comenado %>
-      <%# = titulo %> <br />  <!--Neste formado ele escapa os caracteres-->
-      <%# - titulo %>  <!-- Aqui o html e css é respeitado! Um escapa, o outro executa! -->
-      
-      <!-- Controle de fluxo-->
-      <%# if(typeof titulo !== 'undefined'){ %>
-        <%# = titulo %>
-      <%# }else{ %>
-        O título não foi enviado!
-      <%# } %>
-
-      <!-- Array-->
-      <%# numeros.forEach(num => { %>
-        <%# = num %> <br />
-      <%# }) %>
+      Título!
     </h1>
     <form action="/" method="post">
       <input type="hidden" name="_csrf" value="<%= csrfToken %>">

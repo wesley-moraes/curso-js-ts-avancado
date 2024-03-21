@@ -1,21 +1,3 @@
-
-//module.exports = (req, res, next) =>{
-    
-    /*
-    if(req.body.cliente){
-        console.log();
-        console.log(`Vi que você postou ${req.body.cliente}`);
-        console.log();
-    }
-    next();
-    */  
-//}
-
-/*
-exports.meuMiddleware = (req, res, next) =>{
-    next();
-}
-*/
 exports.middlewareGlobal = (req, res, next) => {
     res.locals.umaVariavelLocal = 'Este é o valor da variável local.';
     next();
@@ -27,7 +9,6 @@ exports.middlewareGlobal = (req, res, next) => {
 
 exports.checkCsrfError = (err, req, res, next) => {
     if(err && err.code === 'EBADCSRFTOKEN'){
-        //return res.send('BAD CSRF!');
         return res.render('404');
     }
 }
