@@ -37,8 +37,8 @@ function Contato(body){
 
 Contato.buscaPorId = async function(id){
     if(typeof id !== 'string') return;
-    const user = await ContatoModel.findById(id);
-    return user;
+    const contato = await ContatoModel.findById(id);
+    return contato;
 }
 
 Contato.prototype.register = async function(){
@@ -46,6 +46,7 @@ Contato.prototype.register = async function(){
     if(this.errors.length > 0) return;
     this.contato = await ContatoModel.create(this.body);
 }
+
 
 Contato.prototype.valida = async function(){
     this.cleanUp();
@@ -74,5 +75,14 @@ Contato.prototype.cleanUp = function(){ //É pra garantir que tudo seja uma stri
         
     }
 };
+
+Contato.prototype.edit = async function(id){
+    console.log('Entrou aqui!!!')
+    if(typeof id !== 'string') return;
+    this.valida();
+    if(this.errors.length > 0) return;
+    this.contato = await ContatoModel.findByIdAndUpdate(id, this.body, {new: true}); //Quando atualizar, retorna os contatos atualizados
+    
+}
 
 module.exports = Contato;
