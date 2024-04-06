@@ -22,7 +22,11 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash'); 
 
 //helmet pode ser executado em qualquer momentp
-app.use(helmet());
+app.use(
+    helmet({
+      contentSecurityPolicy: false,
+    })
+  )
 
 app.use(
     express.urlencoded(
