@@ -1,5 +1,10 @@
+import dotenv from 'dotenv'
+dotenv.config();
+
+import './src/database'; //Este arquivo já vai ser executado quando for machamdo
 import express from 'express';
 import homeRoutes from './src/routes/homeRoutes'
+
 
 
 class App {
