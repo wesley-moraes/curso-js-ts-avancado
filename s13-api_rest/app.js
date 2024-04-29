@@ -3,7 +3,8 @@ dotenv.config();
 
 import './src/database'; //Este arquivo já vai ser executado quando for machamdo
 import express from 'express';
-import homeRoutes from './src/routes/homeRoutes'
+import homeRoutes from './src/routes/homeRoutes';
+import userRoutes from './src/routes/userRoutes';
 
 
 
@@ -22,7 +23,8 @@ class App {
   }
 
   routes() {
-    this.app.use('/', homeRoutes)
+    this.app.use('/', homeRoutes);
+    this.app.use('/users/', userRoutes)
   }
 }
 
