@@ -38,3 +38,36 @@
     justify-content: center;
 
 }
+
+.tarefas{
+    margin-top: 30px;   
+}
+
+.tarefas li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    transition: all .5s;
+}
+
+.tarefas li:hover{
+    background: #5a5858;
+}
+
+.edit{
+    margin-right: 15px;
+    color: #51c5de;
+}
+
+.delete{
+    color: #f04c64
+}
+
+.delete, .edit{
+    cursor: pointer;
+}
+.delete:hover, .edit:hover{
+    background: #363333;
+    border-radius: 40%;
+}

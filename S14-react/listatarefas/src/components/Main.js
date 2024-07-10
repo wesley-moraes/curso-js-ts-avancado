@@ -4,6 +4,10 @@ import './Main.css';
 //Form
 import { FaPlus } from "react-icons/fa6";
 
+//Tarefas
+import { CiEdit } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
+
 export default class Main extends Component {
 
     /*
@@ -19,6 +23,11 @@ export default class Main extends Component {
     //Class Field
     state = {
         novaTarefa : '',
+        tarefas: [
+            'codar',
+            'estudar',
+            'ressignificar'
+        ],
     }
 
     handleChange = (e) =>{
@@ -27,7 +36,7 @@ export default class Main extends Component {
         })
     }
     render(){
-        const {novaTarefa} = this.state;
+        const {novaTarefa, tarefas} = this.state;
         return (
             <div className='main'>
                 <h1>Lista de Tarefas</h1>
@@ -42,6 +51,17 @@ export default class Main extends Component {
                         <FaPlus />
                     </button>
                 </form>
+                <ul className='tarefas'>
+                    {tarefas.map(tarefa => (
+                        <li key={tarefa}>
+                            {tarefa}
+                            <div>
+                                <CiEdit  className='edit' />
+                                <IoMdClose className='delete'/>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
             </div>
         )
     }
