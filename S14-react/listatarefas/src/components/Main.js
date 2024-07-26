@@ -28,7 +28,6 @@ export default class Main extends Component {
 
     handleSubmit = (e) =>{
         e.preventDefault();
-        console.log('oi');
         const { tarefas } = this.state;
         let { novaTarefa } = this.state;
         novaTarefa = novaTarefa.trim();
@@ -42,6 +41,20 @@ export default class Main extends Component {
         this.setState({
             tarefas: [...novasTarefas, novaTarefa]
         })
+    }
+
+    handleDelete = (e, index) =>{
+        const {tarefas} = this.state;
+        const novasTarefas = [...tarefas];
+        novasTarefas.splice(index, 1);
+
+        this.setState({
+            tarefas: [...novasTarefas]
+        })
+    }
+
+    handleEdit = (e, index) =>{
+        console.log("Edit", index);
     }
 
     handleChange = (e) =>{
@@ -68,12 +81,18 @@ export default class Main extends Component {
                     </button>
                 </form>
                 <ul className='tarefas'>
-                    {tarefas.map(tarefa => (
+                    {tarefas.map((tarefa, index)=> (
                         <li key={tarefa}>
                             {tarefa}
                             <span>
-                                <CiEdit  className='edit' />
-                                <IoMdClose className='delete'/>
+                                <CiEdit  
+                                    className='edit' 
+                                    onClick={(e) => this.handleEdit(e, index)}
+                                />
+                                <IoMdClose
+                                    onClick={(e) => this.handleDelete(e, index)}
+                                    className='delete'
+                                />
                             </span>
                         </li>
                     ))}
