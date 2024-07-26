@@ -27,6 +27,27 @@ export default class Main extends Component {
         index: -1 //Para editar
     }
 
+    componentDidMount(){ //Resgatando as tarefas já no localstorage
+        const tarefas = JSON.parse(localStorage.getItem('tarefas'));
+
+        if(!tarefas) return;
+
+        this.setState({
+            tarefas
+        });
+    }
+
+    componentDidUpdate(prevProps, prevState){ //Guardando as novas tarefas
+        //É uma função do react
+        //prevState = estado anterior
+
+        const {tarefas} = this.state;
+
+        if(tarefas === prevState.tarefas) return; 
+
+        localStorage.setItem('tarefas', JSON.stringify(tarefas));
+    }
+
     handleSubmit = (e) =>{
         e.preventDefault();
         const { tarefas, index } = this.state;
