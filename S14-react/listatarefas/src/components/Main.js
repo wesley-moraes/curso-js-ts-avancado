@@ -23,11 +23,25 @@ export default class Main extends Component {
     //Class Field
     state = {
         novaTarefa : '',
-        tarefas: [
-            'codar',
-            'estudar',
-            'ressignificar'
-        ],
+        tarefas: [],
+    }
+
+    handleSubmit = (e) =>{
+        e.preventDefault();
+        console.log('oi');
+        const { tarefas } = this.state;
+        let { novaTarefa } = this.state;
+        novaTarefa = novaTarefa.trim();
+
+        if(tarefas.indexOf(novaTarefa) !== -1) return; //Verificando se a tarefa já existe
+        //Se a tarefa já existir, o return vai parar de executar o código na hora, caso contrário,
+        //Acontece o código abaixo.
+
+        const novasTarefas = [...tarefas]; //Não posso editar tarefas diretamente  
+
+        this.setState({
+            tarefas: [...novasTarefas, novaTarefa]
+        })
     }
 
     handleChange = (e) =>{
@@ -35,13 +49,15 @@ export default class Main extends Component {
             novaTarefa : e.target.value
         })
     }
+
+    
+
     render(){
         const {novaTarefa, tarefas} = this.state;
         return (
             <div className='main'>
                 <h1>Lista de Tarefas</h1>
-                <p>{novaTarefa}</p>
-                <form action='@' className='form'>
+                <form action='@' onSubmit={this.handleSubmit} className='form'>
                     <input 
                         onChange={this.handleChange}
                         type='text' 
@@ -55,10 +71,10 @@ export default class Main extends Component {
                     {tarefas.map(tarefa => (
                         <li key={tarefa}>
                             {tarefa}
-                            <div>
+                            <span>
                                 <CiEdit  className='edit' />
                                 <IoMdClose className='delete'/>
-                            </div>
+                            </span>
                         </li>
                     ))}
                 </ul>
