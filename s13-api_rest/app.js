@@ -1,32 +1,27 @@
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 dotenv.config();
 
-import './src/database'; //Este arquivo já vai ser executado quando for machamdo
+import './src/database'; //Ja executa automaticamente
+
 import express from 'express';
 import homeRoutes from './src/routes/homeRoutes';
-import userRoutes from './src/routes/userRoutes';
-import tokenRoutes from './src/routes/tokenRoutes';
-
 
 class App {
-  constructor() { //Sempre que eu instanciar a classe, ela vai ser executada
+  constructor(){
+    //Sempre que instância essa classe, tudo isso vai ser executado
     this.app = express();
-    this.middlewares();
+    this.middleares();
     this.routes();
   }
 
-  middlewares() {
-    this.app.use(express.urlencoded({ //Base de configuração para usar o express
-      extended: true
-    }));
+  middleares(){
+    this.app.use(express.urlencoded({extended: true}));
     this.app.use(express.json());
   }
 
-  routes() {
+  routes(){
     this.app.use('/', homeRoutes);
-    this.app.use('/users/', userRoutes);
-    this.app.use('/tokens/', tokenRoutes);
   }
 }
 
-export default new App().app; //Exportando apenas o app, já instanciando a classe.
+export default new App().app; //Isso exporta a classe já instânciada. Em outras palavras, naõ pre precisa instânciar ela quando for chadama. Na verdade, já é pra executar o app.

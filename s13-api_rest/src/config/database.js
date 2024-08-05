@@ -3,8 +3,8 @@ require('dotenv').config();
 module.exports = {
   dialect: 'mariadb',
   host: process.env.DATABASE_HOST,
-  port: process.env.DATABSE_PORT,
-  username: process.env.DATABSE_USERNAME,
+  port: process.env.DATABASE_PORT,
+  username: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE,
   define: {
@@ -12,10 +12,18 @@ module.exports = {
     underscored: true,
     underscoredAll: true,
     createdAt: 'created_at',
-    updateAt: 'update_at'
+    updatedAt: 'updated_at',
   },
+  timezone: 'America/Sao_Paulo',
   dialectOptions: {
-    timezone: 'America/Sao_Paulo'
+    useUTC: false
   },
-  timezone: 'America/Sao_Paulo'
+  logging: false,
+
+  /*
+  dialectOptions: {
+    timezone: 'Z'
+  },
+  timezone: 'Z'
+  */
 }
