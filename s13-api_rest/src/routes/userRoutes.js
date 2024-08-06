@@ -7,7 +7,11 @@ import userController from '../controllers/UserController';
 
 const router = new Router();
 
-router.post('/', userController.store)
+router.post('/', userController.store);
+router.get('/', userController.index);
+router.get('/:id', userController.show); //:id -> É um parâmetro
+router.put('/:id', userController.update);
+router.delete('/:id', userController.delete);
 
 export default router;
 
