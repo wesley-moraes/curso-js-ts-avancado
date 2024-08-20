@@ -6,6 +6,9 @@ const aleatorio = () =>{
 }
 
 export default {
+  fileFilter: (req, file, cb)=>{
+    
+  },
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, resolve(__dirname, '..', '..', 'uploads')); //O caminho onde salva o arquivo
