@@ -6,8 +6,13 @@ const aleatorio = () =>{
 }
 
 export default {
+
   fileFilter: (req, file, cb)=>{
-    
+    if(file.mimetype !== 'image/png' && file.mimetype !== 'image/jpeg'){
+      return cb(new multer.MulterError('Arquivo precisa ser PGN ou JPEG'))
+    }
+
+    return cb(null, true);
   },
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
@@ -17,4 +22,6 @@ export default {
       cb(null, `${Date.now()}_${aleatorio()}${extname(file.originalname)}`)
     } //O nome do arquivo
   })
+
+
 };
