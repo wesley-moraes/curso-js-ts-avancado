@@ -2,7 +2,7 @@ import multer from 'multer';
 import {extname, resolve} from 'path';
 
 const aleatorio = () =>{
-  Math.floor(Math.random() * 10000 + 10000);
+  return Math.floor(Math.random() * 10000 + 10000);
 }
 
 export default {
@@ -12,7 +12,7 @@ export default {
       return cb(new multer.MulterError('Arquivo precisa ser PGN ou JPEG'))
     }
 
-    return cb(null, true);
+    return cb(null, true); //null = não há erros, true = pode continuar seguindo
   },
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
